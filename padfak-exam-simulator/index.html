@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>شبیه‌ساز آزمون ورودی دانشگاه | پادفک روسیه</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section id="setupScreen" class="screen active">
+      <header class="landing-header" aria-label="معرفی سامانه">
+        <div class="brand-block">
+          <div class="brand-mark">PF</div>
+          <div>
+            <strong>Padfak University Entrance Simulation</strong>
+            <span>سامانه تمرین آزمون ورودی دانشگاه‌های روسیه</span>
+          </div>
+        </div>
+        <div class="header-meta">نسخه آزمایشی آنلاین</div>
+      </header>
+
+      <section class="hero-card">
+        <div class="hero-copy">
+          <span class="eyebrow">آزمون شبیه‌سازی ورودی دانشگاه</span>
+          <h1>شبیه‌ساز رسمی آزمون ورودی دانشگاه روسیه</h1>
+          <p>
+            این سامانه برای تمرین آزمون ورودی دانشگاه طراحی شده است. داوطلب می‌تواند موضوع آزمون، زبان سؤال‌ها،
+            تعداد سؤال و مدت آزمون را مشخص کند و پس از پایان، گزارش کامل عملکرد و کلید پاسخ را دریافت کند.
+          </p>
+
+          <div class="hero-badges">
+            <span>روسی، شیمی، زیست</span>
+            <span>مدت آزمون برحسب دقیقه</span>
+            <span>گزارش نهایی و پاسخ‌نامه</span>
+          </div>
+        </div>
+
+        <aside class="hero-stat-board" aria-label="خلاصه تنظیمات آزمون">
+          <div class="board-title">مشخصات آزمون نمونه</div>
+          <div class="board-row">
+            <span>تعداد پیش‌فرض</span>
+            <strong>۵ سؤال</strong>
+          </div>
+          <div class="board-row">
+            <span>زمان پیش‌فرض</span>
+            <strong>۳۰ دقیقه</strong>
+          </div>
+          <div class="board-row">
+            <span>ظرفیت بانک سؤال</span>
+            <strong>۱۰ سؤال برای هر بخش</strong>
+          </div>
+          <div class="board-note">مناسب برای تمرین شرایط آزمون ورودی دانشگاه</div>
+        </aside>
+      </section>
+
+      <form id="examForm" class="setup-grid">
+        <section class="setup-card wide-card">
+          <div class="section-title">
+            <span>۱</span>
+            <div>
+              <h2>انتخاب موضوع آزمون</h2>
+              <p>ابتدا یکی از موضوعات آزمون ورودی را انتخاب کنید.</p>
+            </div>
+          </div>
+
+          <div class="choice-grid" role="radiogroup" aria-label="موضوع آزمون">
+            <label class="choice-card active">
+              <input type="radio" name="subject" value="russian" checked />
+              <span class="choice-icon">Р</span>
+              <strong>روسی</strong>
+              <small>گرامر، واژگان و درک مطلب</small>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="subject" value="chemistry" />
+              <span class="choice-icon">Ch</span>
+              <strong>شیمی</strong>
+              <small>مفاهیم پایه ویژه ورود دانشگاه</small>
+            </label>
+            <label class="choice-card">
+              <input type="radio" name="subject" value="biology" />
+              <span class="choice-icon">Bio</span>
+              <strong>زیست</strong>
+              <small>سلول، ژنتیک و بدن انسان</small>
+            </label>
+          </div>
+        </section>
+
+        <section id="languageCard" class="setup-card hidden">
+          <div class="section-title compact-title">
+            <span>۲</span>
+            <div>
+              <h2>زبان سؤال‌ها</h2>
+              <p>برای درس‌های شیمی و زیست، زبان سؤال‌ها را مشخص کنید.</p>
+            </div>
+          </div>
+          <div class="language-switch" role="radiogroup" aria-label="زبان سؤال‌ها">
+            <label class="pill-option active">
+              <input type="radio" name="questionLanguage" value="english" checked />
+              English
+            </label>
+            <label class="pill-option">
+              <input type="radio" name="questionLanguage" value="russian" />
+              Русский
+            </label>
+          </div>
+        </section>
+
+        <section class="setup-card">
+          <div class="section-title compact-title">
+            <span>۳</span>
+            <div>
+              <h2>تنظیمات آزمون</h2>
+              <p>تعداد سؤال بین ۰ تا ۱۰ و زمان آزمون برحسب دقیقه تنظیم می‌شود.</p>
+            </div>
+          </div>
+
+          <div class="field-stack">
+            <label for="questionCount">تعداد سؤال</label>
+            <div class="number-control">
+              <button type="button" data-step="-1" data-target="questionCount" aria-label="کم کردن تعداد سؤال">−</button>
+              <input id="questionCount" name="questionCount" type="number" min="0" max="10" value="5" />
+              <button type="button" data-step="1" data-target="questionCount" aria-label="زیاد کردن تعداد سؤال">+</button>
+            </div>
+            <small class="field-hint">پیش‌فرض: ۵ سؤال</small>
+          </div>
+
+          <div class="field-stack">
+            <label for="examTime">مدت آزمون به دقیقه</label>
+            <div class="number-control">
+              <button type="button" data-step="-5" data-target="examTime" aria-label="کم کردن زمان آزمون">−</button>
+              <input id="examTime" name="examTime" type="number" min="1" max="180" value="30" />
+              <button type="button" data-step="5" data-target="examTime" aria-label="زیاد کردن زمان آزمون">+</button>
+            </div>
+            <small class="field-hint">پیش‌فرض: ۳۰ دقیقه</small>
+          </div>
+        </section>
+
+        <section class="setup-card start-card">
+          <div>
+            <h2>شروع آزمون ورودی</h2>
+            <p>پس از شروع، زمان آزمون فعال می‌شود. در پایان، نمره، وضعیت پاسخ‌ها و پاسخ صحیح هر سؤال نمایش داده خواهد شد.</p>
+          </div>
+          <ul class="policy-list">
+            <li>امکان انتخاب گزینه و تغییر پاسخ وجود دارد.</li>
+            <li>بعد از پایان زمان، آزمون خودکار ثبت می‌شود.</li>
+            <li>گزارش نهایی شامل پاسخ درست و توضیح کوتاه است.</li>
+          </ul>
+          <button class="primary-button" type="submit">ورود به آزمون</button>
+        </section>
+      </form>
+    </section>
+
+    <section id="examScreen" class="screen">
+      <header class="exam-topbar">
+        <div>
+          <span id="examMeta" class="eyebrow"></span>
+          <h2>آزمون ورودی دانشگاه در حال اجراست</h2>
+        </div>
+        <div class="timer-box" aria-live="polite">
+          <span>زمان باقی‌مانده</span>
+          <strong id="timerText">30:00</strong>
+        </div>
+      </header>
+
+      <div class="progress-wrap">
+        <div class="progress-info">
+          <span id="progressText">سؤال ۱ از ۵</span>
+          <span id="answeredText">۰ پاسخ داده شده</span>
+        </div>
+        <div class="progress-track">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+      </div>
+
+      <article class="question-card">
+        <div class="question-head">
+          <span id="questionTag" class="question-tag"></span>
+          <span id="questionNumber" class="question-number"></span>
+        </div>
+        <h3 id="questionText"></h3>
+        <div id="optionsList" class="options-list"></div>
+      </article>
+
+      <footer class="exam-actions">
+        <button id="prevButton" class="secondary-button" type="button">سؤال قبلی</button>
+        <div class="action-group">
+          <button id="nextButton" class="secondary-button" type="button">سؤال بعدی</button>
+          <button id="submitButton" class="primary-button" type="button">ثبت نهایی آزمون</button>
+        </div>
+      </footer>
+    </section>
+
+    <section id="resultScreen" class="screen">
+      <div class="result-hero">
+        <div>
+          <span class="eyebrow">گزارش آزمون ورودی</span>
+          <h2>نتیجه آزمون</h2>
+          <p id="resultSubtitle">گزارش عملکرد شما در آزمون شبیه‌سازی‌شده</p>
+        </div>
+        <div class="score-ring">
+          <strong id="scorePercent">0%</strong>
+          <span id="scoreFraction">0/0</span>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span>درست</span>
+          <strong id="correctCount">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>غلط</span>
+          <strong id="wrongCount">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>بدون پاسخ</span>
+          <strong id="emptyCount">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>زمان مصرف‌شده</span>
+          <strong id="usedTime">0 دقیقه</strong>
+        </div>
+      </div>
+
+      <section class="review-section">
+        <div class="review-title">
+          <h3>پاسخ‌نامه و بررسی سؤال‌ها</h3>
+          <p>برای هر سؤال، پاسخ انتخاب‌شده و گزینه صحیح نمایش داده می‌شود.</p>
+        </div>
+        <div id="reviewList" class="review-list"></div>
+      </section>
+
+      <div class="result-actions">
+        <button id="restartButton" class="primary-button" type="button">شروع آزمون جدید</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/questions.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
